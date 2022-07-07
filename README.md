@@ -7,6 +7,7 @@ using OpenGL
 
 ![image](https://user-images.githubusercontent.com/28249906/177771115-b349ef19-ca36-4041-a178-b312d31c9b98.png)
 
+![image](https://user-images.githubusercontent.com/28249906/177771544-c3e9b897-8451-4184-ae82-c07ae6fb7f66.png)
 
 
 ![KakaoTalk_20201115_151106284](https://user-images.githubusercontent.com/28249906/177770174-e32b9261-3cb8-4ac1-a7c7-dcfe87d403fe.png)|
