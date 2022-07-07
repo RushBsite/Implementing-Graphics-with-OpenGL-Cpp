@@ -10,5 +10,6 @@ using OpenGL
 ![image](https://user-images.githubusercontent.com/28249906/177771544-c3e9b897-8451-4184-ae82-c07ae6fb7f66.png)
 
 
-![KakaoTalk_20201115_151106284](https://user-images.githubusercontent.com/28249906/177770174-e32b9261-3cb8-4ac1-a7c7-dcfe87d403fe.png)|
+![image](https://user-images.githubusercontent.com/28249906/177776729-cd447e06-8ca4-49cd-9bf1-3f68927450f9.png)|![pri_key_main](https://user-images.githubusercontent.com/28249906/177777612-3f8d4561-09e2-4511-8b20-a4fc0b68d18b.gif)|
 |:-:|:-:|:-:|:-:|
+
