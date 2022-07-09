@@ -14,7 +14,7 @@
 |[GL_Lines/GL_Loop](https://github.com/RushBsite/Implementing-Graphics-with-OpenGL-Cpp/tree/main/GL_LINES_GL_LINE_LOOP)|gif|gif|gif|
 |<img src=https://user-images.githubusercontent.com/28249906/178098746-db9881ff-a9aa-4aa2-9c32-86709f8b4786.gif width="200" height="200">|<img src=https://user-images.githubusercontent.com/28249906/178098881-9dc20c8c-e0a2-4aee-9d66-a553e19aef20.gif width="200" height="200">|<img src=https://user-images.githubusercontent.com/28249906/178099004-44e2b4fd-a872-4bb7-9258-b70e52e894fd.gif width="200" height="200">|<img src=https://user-images.githubusercontent.com/28249906/178099140-013dcf91-4c0b-470a-9a44-f796b3716864.gif width="200" height="200">|
 |gif|gif|gif|gif|
-|<img src= width="200" height="200">|<img src= width="200" height="200">|<img src= width="200" height="200">|<img src= width="200" height="200">|
+|<img src=https://user-images.githubusercontent.com/28249906/178099635-9555acec-a42f-4748-88d9-77d6a10419e6.gif width="200" height="200">|<img src=https://user-images.githubusercontent.com/28249906/178099907-2d2c3a43-9a82-4939-b235-210400e8442b.gif width="200" height="200">|<img src=https://user-images.githubusercontent.com/28249906/178099952-8fc60d40-bf37-4d09-8cd2-3ae97bb4ec07.gif width="200" height="200">|<img src=https://user-images.githubusercontent.com/28249906/178099998-9d5a496d-7ba9-479f-8a61-97cf5aba0b5e.gif width="200" height="200">|
 |gif|gif|gif|gif|
 |<img src= width="200" height="200">|<img src= width="200" height="200">|<img src= width="200" height="200">|<img src= width="200" height="200">|
 |gif|gif|gif|gif
