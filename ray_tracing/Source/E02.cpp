@@ -162,13 +162,13 @@ float findIntersection(const Ray& ray, const vec3& center, float radius, vec3& p
 		p = (1 - t) * ray.p0 + t * ray.p1;	// The closest intersection point
 		n = normalize(p - center);	// Normal at the point
 	}
-	//else if(t0 == 0 || t1 == 0)
-	//{
-	//	t = std::max(t0, t1);	// one of t = 0
-	//	vec3 n_p1 = normalize(p10);
-	//	p = ray.p0 + n_p1 * 2.0f * x / y; 	// The closest intersection point
-	//	n = normalize(center - p);	// reverse Normal at the point
-	//}
+	else if(t0 == 0 || t1 == 0)
+	{
+		t = std::max(t0, t1);	// one of t = 0
+		vec3 n_p1 = normalize(p10);
+		p = ray.p0 + n_p1 * 2.0f * x / y; 	// The closest intersection point
+		n = normalize(center - p);	// reverse Normal at the point
+	}
 	else { 
 		t = std::max(t0, t1);	// Beyond 0
 
@@ -199,7 +199,7 @@ int findIntersection(const Ray& ray, vec3& p, vec3& n, int E)
 		
 		if(i==7 && E ==7)
 		{
-			vec3 p10 = (normalize(ray.p1 - ray.p0))*1.0e-5f;
+			vec3 p10 = (normalize(ray.p1 - ray.p0))*1.0e-4f;
 			
 			
 			Ray ray1(vec3(ray.p0.x + p10.x, ray.p0.y + p10.y , ray.p0.z + p10.z), ray.p1);
@@ -210,28 +210,23 @@ int findIntersection(const Ray& ray, vec3& p, vec3& n, int E)
 			n_t = t;
 			
 		}
-		else
+		else if(E != 7)
 		{
 			float t = findIntersection(ray, center, radius[i], p_i, n_i);
+				n_t = t;
+		}
+		else
+		{
+			vec3 p10 = (ray.p1 - ray.p0) / 1000.0f;
+			normalize(p10);
+
+			Ray ray1(vec3(ray.p0.x + p10.x, ray.p0.y + p10.y, ray.p0.z + p10.z), ray.p1);
+
+			float t = findIntersection(ray1, center, radius[i], p_i, n_i);
+
+
 			n_t = t;
 		}
-		//if(E != 7)
-		//{
-		//	float t = findIntersection(ray, center, radius[i], p_i, n_i);
-		//		n_t = t;
-		//}
-		//else
-		//{
-		//	vec3 p10 = (ray.p1 - ray.p0) / 1000.0f;
-		//	//normalize(p10);*/
-
-		//	Ray ray1(vec3(ray.p0.x + p10.x, ray.p0.y + p10.y, ray.p0.z + p10.z), ray.p1);
-
-		//	float t = findIntersection(ray1, center, radius[i], p_i, n_i);
-
-
-		//	n_t = t;
-		//}
 		
 
 		if (n_t < 0) continue;
@@ -305,7 +300,7 @@ vec3 intensity(const Ray& ray, const Light l[], int nLights, int depth, int E = 
 		{
 			//Shadow ray
 			vec3 p_shadow, n_shadow; //not used
-			vec3 pDistantLight = p + 1.0e10f * l[i].p_eye;
+			vec3 pDistantLight = p + 1.0e4f * l[i].p_eye;
 			Ray shadowRay(p, pDistantLight);
 
 			int jObject = findIntersection(shadowRay, p_shadow, n_shadow, iObject);
@@ -329,7 +324,7 @@ vec3 intensity(const Ray& ray, const Light l[], int nLights, int depth, int E = 
 			//Reflection ray
 
 			vec3 r = normalize(reflect(ray.p0 - ray.p1, n));
-			vec3 pr = p + 1.0E10f * r; // Point far away from p along r
+			vec3 pr = p + 1.0e4f * r; // Point far away from p along r
 			Ray recursiveRay(p, pr);
 
 			vec3 I_R = intensity(recursiveRay, l, nLights, depth + 1, iObject);
@@ -346,7 +341,7 @@ vec3 intensity(const Ray& ray, const Light l[], int nLights, int depth, int E = 
 		{
 			//Shadow ray
 			vec3 p_shadow, n_shadow; //not used
-			vec3 pDistantLight = p + 1.0e10f * l[i].p_eye;
+			vec3 pDistantLight = p + 1.0e4f * l[i].p_eye;
 			Ray shadowRay(p, pDistantLight);
 
 			int jObject = findIntersection(shadowRay, p_shadow, n_shadow, iObject);
@@ -368,7 +363,7 @@ vec3 intensity(const Ray& ray, const Light l[], int nLights, int depth, int E = 
 			//Reflection ray
 
 			vec3 r = normalize(reflect(ray.p0 - ray.p1, n));
-			vec3 pr = p + 1.0E10f * r; // Point far away from p along r
+			vec3 pr = p + 1.0e4f * r; // Point far away from p along r
 			Ray recursiveRay(p, pr);
 
 			
@@ -673,7 +668,7 @@ void
 increaseSpecular()
 {
 	for (int i = 0; i < 3; i++)
-		m_specular[i] = std::min(m_specular[i] + 0.1f, 1.0f);
+		m_specular[i] = std::min(m_specular[i] + 0.05f, 1.0f);
 
 	rayTracingRequired = true;
 }
@@ -681,7 +676,7 @@ void
 decreaseSpecular()
 {
 	for (int i = 0; i < 3; i++)
-		m_specular[i] = std::max(m_specular[i] - 0.1f, 0.0f);
+		m_specular[i] = std::max(m_specular[i] - 0.05f, 0.0f);
 	rayTracingRequired = true;
 }
 // Ray tracing depth control
